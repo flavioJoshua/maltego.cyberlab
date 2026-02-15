@@ -1,11 +1,29 @@
+## Implemented Functions (Cyberlab)
+The updated transforms available in this Cyberlab build are:
+
+1. `getgooglesearchimage` (`transforms/GetGoogleSearch.py`)
+2. `getgooglesearch` (`transforms/GetGoogleSearch.py`)
+3. `getarticle` (`transforms/getArticle.py`)
+4. `getbraveaiimagesearch` (`transforms/getBraveAIImageSearch.py`)
+5. `getbraveainewssearch` (`transforms/getBraveAINewsSearch.py`)
+6. `getbraveaiwebsearch` (`transforms/getBraveAIWebSearch.py`)
+
+## Premium Version Functions (not included in Cyberlab)
+These AI functions are not included in this Cyberlab build:
+
+1. `getaiv3` (`transforms/getAIV3.py`)
+2. `getarticleaikgentity` (`transforms/getArticleAIKGEntity.py`)
+3. `getarticleaikgphrase` (`transforms/getArticleAIKGPhrase.py`)
+
+## Quick setup
+```bash
 conda env create -f /home/flavio/code/Osint/maltego/environment.yml -n maltego_v2
-
 conda env update -n maltego_v2 -f /home/flavio/code/Osint/maltego/environment.yml --prune
-
 
 python -m venv .venv
 source .venv/bin/activate
 pip install -r /home/flavio/code/Osint/maltego/requirements.txt
+```
 
 ## OpenAI models
 - gpt-5-search-api
