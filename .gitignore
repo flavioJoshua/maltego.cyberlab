@@ -1,10 +1,10 @@
 *.pyc
 Bing*.json
 Google*.json
-.env
 .log
 20240826.Daniel.tar.gz.gpg
 20240826.tar.gz
 audit.log
 audit.log
 local.mtz
+.env
