@@ -625,5 +625,8 @@ poi ti agganci con la  la versione launch.json
         "port": 5678
       },
 
+python -c "import lxml.html.clean; from newspaper import Article; from maltego_trx.handler import handle_run; print('OK')"
+
+
 ## Future features
 - Grounding con web search anche per provider `gemini` (con fallback sicuro se il tool non e supportato dall'endpoint/model).
