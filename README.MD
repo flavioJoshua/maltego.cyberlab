@@ -1,14 +1,29 @@
+## Funzioni Implementate (Cyberlab)
+Le transform aggiornate e disponibili in questa versione sono:
 
+1. `getgooglesearchimage` (`transforms/GetGoogleSearch.py`)
+2. `getgooglesearch` (`transforms/GetGoogleSearch.py`)
+3. `getarticle` (`transforms/getArticle.py`)
+4. `getbraveaiimagesearch` (`transforms/getBraveAIImageSearch.py`)
+5. `getbraveainewssearch` (`transforms/getBraveAINewsSearch.py`)
+6. `getbraveaiwebsearch` (`transforms/getBraveAIWebSearch.py`)
 
+## Funzioni Versione Premium (non incluse in Cyberlab)
+Queste funzioni AI non sono incluse in questa build Cyberlab:
 
+1. `getaiv3` (`transforms/getAIV3.py`)
+2. `getarticleaikgentity` (`transforms/getArticleAIKGEntity.py`)
+3. `getarticleaikgphrase` (`transforms/getArticleAIKGPhrase.py`)
+
+## Setup rapido
+```bash
 conda env create -f /home/flavio/code/Osint/maltego/environment.yml -n maltego_v2
-
 conda env update -n maltego_v2 -f /home/flavio/code/Osint/maltego/environment.yml --prune
-
 
 python -m venv .venv
 source .venv/bin/activate
 pip install -r /home/flavio/code/Osint/maltego/requirements.txt
+```
 
 ## model OpenAI
 - gpt-5-search-api
@@ -322,18 +337,6 @@ Log principali:
 Note:
 - Se `logtokenMax=true` (env), logga **usage/token** e **finish_reason** quando presenti.
 - Per ottimizzare, usa una cache di fallback su max token in `transforms/fallback_tokenmax.txt`.
-
-#### ICT Query AI (V2) — `transforms/getAIV2.py`
-Log principali:
-- Tipo di `request.Properties`.
-- Dump completo di `Properties` + `TransformSettings`.
-Nota: non logga la risposta AI o parametri di chiamata.
-
-#### ICT Query AI (legacy) — `transforms/getAI.py`
-Log principali:
-- Tipo di `request.Properties`.
-- Dump completo di `Properties` + `TransformSettings`.
-Nota: non logga la risposta AI o parametri di chiamata.
 
 #### ICT Brave AI Web Search — `transforms/getBraveAIWebSearch.py`
 Log principali:

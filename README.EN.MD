@@ -256,18 +256,6 @@ Notes:
 - If `logtokenMax=true` (env), logs **usage/tokens** and **finish_reason** when present.
 - For optimization, uses a max-token fallback cache at `transforms/fallback_tokenmax.txt`.
 
-#### ICT Query AI (V2) — `transforms/getAIV2.py`
-Main logs:
-- Type of `request.Properties`.
-- Full dump of `Properties` + `TransformSettings`.
-Note: does not log AI response or call parameters.
-
-#### ICT Query AI (legacy) — `transforms/getAI.py`
-Main logs:
-- Type of `request.Properties`.
-- Full dump of `Properties` + `TransformSettings`.
-Note: does not log AI response or call parameters.
-
 #### ICT Brave AI Web Search — `transforms/getBraveAIWebSearch.py`
 Main logs:
 - `Value` + `Properties`.
