@@ -1,8 +1,88 @@
 from extensions import registry
 from maltego_trx.maltego import BOOKMARK_COLOR_GREEN, BOOKMARK_COLOR_PURPLE, BOOKMARK_COLOR_RED, UIM_TYPES, MaltegoMsg, MaltegoTransform
 from maltego_trx.transform import DiscoverableTransform
-from AI.aikg_phrase_pipeline import download_article_text, extract_url_from_request
 from utility import log_message
+
+from lxml import html
+from newspaper import Article
+from readability import Document
+import requests
+
+
+def extract_url_from_request(value, properties=None):
+    props = properties or {}
+    for key in ("theurl", "url", "link"):
+        candidate = str(props.get(key, "") or "").strip()
+        if candidate:
+            return candidate
+    fallback = str(value or "").strip()
+    if fallback.startswith("http://") or fallback.startswith("https://"):
+        return fallback
+    raise ValueError("URL non trovata in request.Properties (theurl/url/link) o request.Value.")
+
+
+def download_article_text(url):
+    errors = []
+    try:
+        article = Article(url)
+        article.download()
+        article.parse()
+        text = str(article.text or "").strip()
+        title = str(article.title or "").strip()
+        publish_date = ""
+        if article.publish_date is not None:
+            try:
+                publish_date = article.publish_date.isoformat()
+            except Exception:
+                publish_date = str(article.publish_date)
+        if text:
+            return {
+                "url": url,
+                "title": title,
+                "text": text,
+                "publish_date": publish_date,
+                "download_method": "newspaper3k",
+            }
+        errors.append("newspaper3k empty text")
+    except Exception as exc:
+        errors.append(f"newspaper3k: {exc}")
+
+    try:
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/127.0 Safari/537.36"
+            )
+        }
+        response = requests.get(url, headers=headers, timeout=25)
+        response.raise_for_status()
+        doc = Document(response.text)
+        title = str(getattr(doc, "short_title", lambda: "")() or doc.title() or "").strip()
+        summary_html = str(doc.summary() or "")
+        text = ""
+        if summary_html:
+            try:
+                text = " ".join(html.fromstring(summary_html).text_content().split())
+            except Exception:
+                text = ""
+        if not text:
+            try:
+                text = " ".join(html.fromstring(response.content).text_content().split())
+            except Exception:
+                text = ""
+        if text:
+            return {
+                "url": url,
+                "title": title,
+                "text": text,
+                "publish_date": "",
+                "download_method": "readability-lxml",
+            }
+        errors.append("readability-lxml empty text")
+    except Exception as exc:
+        errors.append(f"readability-lxml: {exc}")
+
+    raise RuntimeError(f"Download articolo fallito: {' | '.join(errors)}")
 
 
 
@@ -122,6 +202,5 @@ class getArticle(DiscoverableTransform):
 
 
         return summary
-
 
 
