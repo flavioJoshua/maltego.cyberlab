@@ -1,0 +1,20 @@
+name: maltego
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - requests
+  - lxml
+  - beautifulsoup4
+  - ipython
+  - selenium
+  - debugpy
+  - pip:
+      - openai
+      - python-dotenv
+      - maltego-trx
+      - readability-lxml
+      - newspaper3k
+      - google-auth
+      - objbrowser

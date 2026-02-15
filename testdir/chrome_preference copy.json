@@ -1,0 +1,49 @@
+{
+  "NewTabPage": {
+    "PrevNavigationTime": "13393657021611228"
+  },
+  "accessibility": {
+    "captions": {
+      "live_caption_enabled": false,
+      "live_caption_language": "it-IT"
+    }
+  },
+  "account_info": [
+    {
+      "access_point": 11,
+      "account_id": "115701349274784676451",
+      "accountcapabilities": {
+        "accountcapabilities/g42tslldmfya": 1,
+        "accountcapabilities/g44tilldmfya": 0,
+        "accountcapabilities/ge2dinbnmnqxa": 0,
+        "accountcapabilities/ge2tkmznmnqxa": 1,
+        "accountcapabilities/ge2tknznmnqxa": 1,
+        "accountcapabilities/ge2tkobnmnqxa": 1,
+        "accountcapabilities/ge3dgmjnmnqxa": 1,
+        "accountcapabilities/ge3dgobnmnqxa": 1,
+        "accountcapabilities/geydgnznmnqxa": 1,
+        "accountcapabilities/geytcnbnmnqxa": 1,
+        "accountcapabilities/gezdcnbnmnqxa": 1,
+        "accountcapabilities/gezdsmbnmnqxa": 0,
+        "accountcapabilities/geztenjnmnqxa": 1,
+        "accountcapabilities/gi2tklldmfya": 1,
+        "accountcapabilities/gu2dqlldmfya": 1,
+        "accountcapabilities/gu4dmlldmfya": 1,
+        "accountcapabilities/guydolldmfya": 0,
+        "accountcapabilities/guzdslldmfya": 0,
+        "accountcapabilities/haytqlldmfya": 1,
+        "accountcapabilities/he4tolldmfya": 0
+      },
+      "email": "tilopaa@gmail.com",
+      "full_name": "tilopaa flavio",
+      "gaia": "115701349274784676451",
+      "given_name": "tilopaa",
+      "hd": "NO_HOSTED_DOMAIN",
+      "is_supervised_child": 0,
+      "is_under_advanced_protection": false,
+      "last_downloaded_image_url_with_size": "https://lh3.googleusercontent.com/a/ACg8ocKEnI5Xuv3ifCAbatyD7vshecyoYRRU9yIdTXDJ1awk31VbgOOVNg=s256-c-ns",
+      "locale": "it",
+      "picture_url": "https://lh3.googleusercontent.com/a/ACg8ocKEnI5Xuv3ifCAbatyD7vshecyoYRRU9yIdTXDJ1awk31VbgOOVNg=s96-c"
+    }
+  ]
+}

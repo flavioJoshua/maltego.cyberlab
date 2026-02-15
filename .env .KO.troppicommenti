@@ -1,0 +1,30 @@
+# OPENAI_API_KEY="sk-svcacct-B7qIAdDM2XvWAZ9rCqYwRscfGFeiPz9lQbXPDntZh4ezTbdiUQ92BwVH6PHM_-WsGSu1_T9BYIihRlddT3BlbkFJHLFZRnwG1zJAYuhgF6v35y4OEGEVsIATiFMHsSELPgdzQ9aHozDS2bu7xagCQ9cC4-vhSnpLYDu4LrIA"     #   serviceaccount-test-project-2025
+
+OPENAI_API_KEY="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"
+#   test  project   python-test
+
+# OPENAI_API_KEY="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" 
+ # admin key 2025
+
+
+organization='org-FA4BODBXotZ0exPrNrujNmIi'  
+projectID='proj_dCBXboUKqzrZe0Urzq8CpWrS' 
+ #  test project 
+
+# OPENAI_API_KEY="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"
+# organization='org-FA4BODBXotZ0exPrNrujNmIi'
+# projectID='proj_1OKO5KtSCExb9erFG5ICcJkN'
+
+
+# apikey  ict  gmail  expired 16/09/2024  
+# GCP_API_KEY = "AIzaSyA8AsHbYdIRUrMEIfLVY5qfYtZ2HKu4UIA"  
+#   CSE_ID = "835384c9cb24f48e2"
+# '
+# 
+# 
+# 
+
+# ApiKey   webcam.homejob@gmail.com  
+GCP_API_KEY = "AIzaSyACMDuQ2YI38IB9ZHS9RknrAtRE76xCkvA"  
+CSE_ID = "f52069f7b24114246"      
+#CSE_ID = "f537bbb1a82e79457e"  #  per   FB

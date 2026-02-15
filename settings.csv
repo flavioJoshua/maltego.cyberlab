@@ -1,0 +1,8 @@
+Name,Type,Display,DefaultValue,Optional,Popup
+count,string,count,,true,true
+offset,string,offset,,true,true
+freshness,string,freshness,,true,true
+country,string,country,,true,true
+search_lang,string,search_lang,,true,true
+extra_snippets,string,extra_snippets,,true,true
+goggles,string,goggles,,true,true

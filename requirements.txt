@@ -1,0 +1,17 @@
+# Minimal requirements for this project
+# Note: optional extras (e.g., selenium) can be added if you run those tests.
+
+openai
+python-dotenv
+maltego-trx
+requests
+readability-lxml
+lxml
+newspaper3k
+google-auth
+ipython
+objbrowser
+selenium
+debugpy
+
+# Optional: aggiungi qui altri tool di test se servono

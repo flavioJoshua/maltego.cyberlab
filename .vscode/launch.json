@@ -1,0 +1,136 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python Debugger: Flask",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "flask",
+      "env": {
+        "FLASK_APP": "project.py",
+        "FLASK_DEBUG": "1"
+      },
+      "args": [
+        "run",
+        "--no-debugger",
+        "--no-reload"
+      ],
+      "jinja": true,
+      "autoStartBrowser": false
+    },
+    {
+      "name": "Python Debugger: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+      {
+      "name": "compilazione MTZ per Maltego",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/project.py",
+      "console": "integratedTerminal",
+      "args": ["local"],
+      "cwd": "${workspaceFolder}"
+    }
+    
+
+    ,
+    {
+      "name": "Python Debugger: Attach using Process Id",
+      "type": "debugpy",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    },
+    {
+      "name": "Python Debugger: Current File with ASKED Arguments",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}",
+      "args": "${command:pickArgs}",
+      "justMyCode": false
+    },
+    {
+      "name": "Python Debugger: Current File with Arguments runserver",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": "runserver ",
+      "justMyCode": false
+    },
+    {
+      "name": "Current File with local dnstoip italiancyberteam.it",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": "local dnstoip italiancyberteam.it",
+      "justMyCode": false
+    },
+    {
+      "name": "Current File with local getgooglesearch covid19",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": "local getgooglesearch covid19",
+      "justMyCode": false
+    }
+    ,
+    {
+      "name": "AI/ChatGP2.py parametrico 2 param",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "AI.ChatGP2",
+      "console": "integratedTerminal",
+      "args": ["come si chiamava lo zar terribile?", "dai solo nome : e cognome : e numero  dei token consumati"],
+      "justMyCode": false,
+      "cwd": "${workspaceFolder}"
+
+    }
+    ,{
+      "name": "Python Debugger: debugpy",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "debugpy"
+    },
+    {
+      "name": "Python Debugger: runserver Attuale File test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "args": [
+        "runserver"
+      ],
+      "cwd": "${fileDirname}",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Attach  5678 ",
+      "type": "python",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "justMyCode": false
+    },
+    {
+      "name": "Python Debugger: Python File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}"
+    }
+  ]
+}
