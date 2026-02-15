@@ -3,18 +3,21 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
-  - pip
-  - requests
-  - lxml
-  - beautifulsoup4
-  - ipython
-  - selenium
-  - debugpy
+  - pip=24.2
+  - requests=2.32.3
+  - lxml=5.3.0
+  - beautifulsoup4=4.12.3
+  - ipython=8.27.0
+  - selenium=4.24.0
+  - debugpy=1.8.5
   - pip:
-      - openai
-      - python-dotenv
-      - maltego-trx
-      - readability-lxml
-      - newspaper3k
-      - google-auth
-      - objbrowser
+      - openai==1.51.2
+      - python-dotenv==1.0.1
+      - maltego-trx==1.7.0
+      - flask==3.1.2
+      - werkzeug==3.1.5
+      - markupsafe==3.0.3
+      - readability-lxml==0.8.1
+      - newspaper3k==0.2.8
+      - google-auth==2.35.0
+      - objbrowser==0.3.0
