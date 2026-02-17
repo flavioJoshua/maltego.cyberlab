@@ -16,7 +16,7 @@ The updated transforms available in this Cyberlab build are:
 5. `getbraveainewssearch` (`transforms/getBraveAINewsSearch.py`)
 6. `getbraveaiwebsearch` (`transforms/getBraveAIWebSearch.py`)
 
-## Premium Version Functions (not included in Cyberlab)
+## Premium Version Functions (not included in Cyberlab) (not Included on Free version CyberLab)
 These AI functions are not included in this Cyberlab build:
 
 1. `getaiv3` (`transforms/getAIV3.py`)
@@ -192,7 +192,7 @@ Recommended phrases (ICT CSE Search Image):
 - Channels: Meet, Chat, AnyDesk.
 - Contact support for: `.mtz` import issues, entity/transform mapping issues, `command line` and `working directory` tuning, Conda environment troubleshooting.
 
-## OpenAI models
+## OpenAI models (not Included on Free version CyberLab)
 - gpt-5-search-api
 - gpt-4o-search-preview
 - gpt-4o-mini-search-preview
@@ -231,7 +231,7 @@ Recommended phrases (ICT CSE Search Image):
   - `openAI-response=false` -> uses Chat Completions.
   - `OPENAI_WEB_SEARCH=true` is applied only in the OpenAI Responses branch.
 
-## HF models
+## HF models (not Included on Free version CyberLab)
 - google/gemma-3-12b-it:featherless-ai
 - deepseek-ai/DeepSeek-R1:cheapest
 - deepseek-ai/DeepSeek-V3.2:cheapest
@@ -241,11 +241,11 @@ https://generativelanguage.googleapis.com/v1beta/openai/
 
 
 
-## Gemini Studio models
+## Gemini Studio models (not Included on Free version CyberLab)
 
 https://ai.google.dev/gemini-api/docs/models
 
-## text-to-text only (recommended)
+## text-to-text only (recommended) (not Included on Free version CyberLab)
 - gemini-3-pro-preview
 - gemini-3-flash-preview
 - gemini-2.5-pro
@@ -254,7 +254,7 @@ https://ai.google.dev/gemini-api/docs/models
 - gemini-2.5-flash-preview-09-2025
 - gemini-2.5-flash-lite-preview-09-2025
 
-## legacy text-to-text (deprecated)
+## legacy text-to-text (deprecated) (not Included on Free version CyberLab)
 - gemini-2.0-flash
 - gemini-2.0-flash-lite
 
@@ -285,7 +285,7 @@ https://ai.google.dev/gemini-api/docs/models
 
 
 
-## various providers
+## various providers (not Included on Free version CyberLab)
 openai        OK
 hf            OK
 lightningai
@@ -357,7 +357,7 @@ Format: **property name: YES/NO** - what it does - what happens if missing.
 - **ICT.AI.ApiKeyEnv: NO** - ignored (no API key needed).
 - **ICT.Model_AI: YES** - locally installed Ollama model name.
 
-## AI providers: possible cases and requirements
+## AI providers: possible cases and requirements (not Included on Free version CyberLab)
 This section summarizes **all cases** supported by the `getAIV3` transform: providers, requirements, and choices.
 
 ### OpenAI possible choices
@@ -592,7 +592,7 @@ When present, the transform **skips** attempts that include those parameters.
 - `stop`: response completed normally (not truncated).
 - `length`: response truncated by token/max-token limit.
 
-## getAIV3: providers, parameters and fallback (full explanation)
+## getAIV3: providers, parameters and fallback (full explanation) (not Included on Free version CyberLab)
 This section documents the behavior of the transform `transforms/getAIV3.py`.
 
 ### Entity properties (what to set in Maltego)
@@ -756,7 +756,7 @@ Important notes:
 - `ICT.AI.ApiKeyEnv` is **not** a `.env` variable name: it is the actual token passed by the Entity (has priority).
 
 
-## how to use an image model
+## how to use an image model (not Included on Free version CyberLab)
 
 in user question:  Describe this image in one sentence:
 in text (system)   "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"

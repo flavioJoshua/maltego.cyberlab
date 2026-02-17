@@ -16,7 +16,7 @@ Le transform aggiornate e disponibili in questa versione sono:
 5. `getbraveainewssearch` (`transforms/getBraveAINewsSearch.py`)
 6. `getbraveaiwebsearch` (`transforms/getBraveAIWebSearch.py`)
 
-## Funzioni Versione Premium (non incluse in Cyberlab)
+## Funzioni Versione Premium (non incluse in Cyberlab) (not Included on Free version CyberLab)
 Queste funzioni AI non sono incluse in questa build Cyberlab:
 
 1. `getaiv3` (`transforms/getAIV3.py`)
@@ -192,7 +192,7 @@ Frasi consigliate (ICT CSE Search Image):
 - Canali: Meet, Chat, AnyDesk.
 - Quando contattare il supporto: errori import `.mtz`, problemi mapping entity/transform, tuning parametri (`command line`, `working directory`), troubleshooting ambiente Conda.
 
-## model OpenAI
+## model OpenAI (not Included on Free version CyberLab)
 - gpt-5-search-api
 - gpt-4o-search-preview
 - gpt-4o-mini-search-preview
@@ -231,7 +231,7 @@ Frasi consigliate (ICT CSE Search Image):
   - `openAI-response=false` -> usa Chat Completions.
   - `OPENAI_WEB_SEARCH=true` viene usato solo nel ramo Responses di OpenAI.
 
-## model HF 
+## model HF (not Included on Free version CyberLab)
 - google/gemma-3-12b-it:featherless-ai
 - deepseek-ai/DeepSeek-R1:cheapest
 - deepseek-ai/DeepSeek-V3.2:cheapest
@@ -241,11 +241,11 @@ https://generativelanguage.googleapis.com/v1beta/openai/
 
 
 
-## model   Gemini Studio 
+## model   Gemini Studio (not Included on Free version CyberLab)
 
 https://ai.google.dev/gemini-api/docs/models
 
-## solo modelli text-to-text (consigliati)
+## solo modelli text-to-text (consigliati) (not Included on Free version CyberLab)
 - gemini-3-pro-preview
 - gemini-3-flash-preview
 - gemini-2.5-pro
@@ -254,7 +254,7 @@ https://ai.google.dev/gemini-api/docs/models
 - gemini-2.5-flash-preview-09-2025
 - gemini-2.5-flash-lite-preview-09-2025
 
-## modelli text-to-text precedenti (deprecati)
+## modelli text-to-text precedenti (deprecati) (not Included on Free version CyberLab)
 - gemini-2.0-flash
 - gemini-2.0-flash-lite
 
@@ -285,7 +285,7 @@ https://ai.google.dev/gemini-api/docs/models
 
 
 
-## vari provider
+## vari provider (not Included on Free version CyberLab)
 openai        OK 
 hf            OK
 lightningai
@@ -357,7 +357,7 @@ Formato: **nome prop: SI/NO** – cosa fa – cosa succede se manca.
 - **ICT.AI.ApiKeyEnv: NO** – ignorato (non serve API key).
 - **ICT.Model_AI: SI** – nome modello locale installato in Ollama.
 
-## Provider AI: casi possibili e requisiti
+## Provider AI: casi possibili e requisiti (not Included on Free version CyberLab)
 Questa sezione riassume **tutti i casi** supportati dal transform `getAIV3`: provider, requisiti e scelte.
 
 ### Scelte possibili per OpenAI
@@ -592,7 +592,7 @@ Quando presente, il transform **salta direttamente** i tentativi che includono q
 - `stop`: risposta completata normalmente (non troncata).
 - `length`: risposta troncata per limite token/max token.
 
-## getAIV3: provider, parametri e fallback (spiegazione completa)
+## getAIV3: provider, parametri e fallback (spiegazione completa) (not Included on Free version CyberLab)
 Questa sezione documenta il comportamento del transform `transforms/getAIV3.py`.
 
 ### Proprietà dell'entità (cosa mettere in Maltego)
@@ -756,7 +756,7 @@ Note importanti:
 - `ICT.AI.ApiKeyEnv` **non è** un nome di variabile `.env`: è il token vero e proprio passato dalla Entity (ha priorità).
 
 
-## come usare un  model imaging 
+## come usare un  model imaging (not Included on Free version CyberLab)
 
 su domanda(user)  Describe this image in one sentence: 
 su text (system)   "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
