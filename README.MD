@@ -3,6 +3,9 @@
 è la versione  pubblica di Italian Cyber Team  Tools for Maltego.
 questa  versione è la versione diminuita e senza AI valutativa del package  Italian Cyber Team  Maltego
 
+## Installazione (prima delle funzioni)
+Esegui prima il capitolo `Installazione (step-by-step)` qui sotto, poi passa alla sezione `Funzioni Implementate (Cyberlab)`.
+
 ## Funzioni Implementate (Cyberlab)
 Le transform aggiornate e disponibili in questa versione sono:
 
@@ -29,6 +32,165 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r /home/flavio/code/Osint/maltego/requirements.txt
 ```
+
+## Installazione (step-by-step)
+
+### 1) Clonare il repository
+```bash
+git clone https://github.com/flavioJoshua/maltego.cyberlab.git
+cd maltego.cyberlab
+```
+
+### 2) Installare Conda
+#### Debian/Ubuntu
+```bash
+sudo apt update
+sudo apt install -y wget bzip2
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+source ~/.bashrc
+conda --version
+```
+
+#### Windows (PowerShell)
+1. Scarica Miniconda da `https://docs.conda.io/en/latest/miniconda.html`.
+2. Esegui installer (spunta "Add Miniconda to PATH" solo se richiesto dalla tua policy IT).
+3. Apri **Anaconda Prompt** o **PowerShell**.
+4. Verifica:
+```powershell
+conda --version
+```
+
+### 3) Creare l'ambiente Conda (setup rapido)
+Esegui i comandi del setup rapido:
+```bash
+conda env create -f /home/flavio/code/Osint/maltego/environment.yml -n maltego_v2
+conda env update -n maltego_v2 -f /home/flavio/code/Osint/maltego/environment.yml --prune
+```
+
+Individua l'ambiente creato:
+```bash
+conda env list
+```
+Devi vedere `maltego_v2` tra gli ambienti disponibili.
+
+### 4) (Opzionale) Venv Python locale
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r /home/flavio/code/Osint/maltego/requirements.txt
+```
+
+## Import package `.mtz` e configurazione in Maltego
+
+### Import del package `20260202_Entity_Transformation_NO_AI_V3.mtz`
+1. Apri Maltego Desktop.
+2. Vai in `Import/Export` -> `Import Configuration`.
+3. Seleziona il file `20260202_Entity_Transformation_NO_AI_V3.mtz` dalla root del progetto.
+4. Conferma import e riavvia Maltego se richiesto.
+5. Verifica che nuove Entity/Transform ICT siano visibili in palette e Transform Hub locale.
+
+### Import di nuove entity e transform (passo-passo)
+1. Apri `Manage` -> `Import/Export` -> `Import Configuration` per pacchetti `.mtz`.
+2. Se hai un package aggiornato, importa il nuovo `.mtz` nello stesso modo.
+3. Apri un nuovo graph e cerca le entity ICT (es. `ICT.brave.request`, `ICT.brave.request.image`, `ict.ArticleDetails`).
+4. Trascina l'entity nel graph e verifica che le trasformazioni ICT siano disponibili dal menu contestuale.
+5. Esegui una trasformazione e controlla che il tipo output sia corretto (`maltego.URL`, `maltego.Image`, `ICT.Brave.type.web`, ecc.).
+
+### Personalizzare `Command line` e `Working directory`
+In Maltego (Transform settings locali), per ogni transform Python locale:
+1. Apri la configurazione della transform.
+2. Imposta `Command line` con il Python dell'ambiente.
+3. Imposta `Working directory` sulla root del repository clonato.
+
+Esempio Linux:
+- `Command line`: `/path/env/bin/python /path/repo/main.py`
+- `Working directory`: `/path/repo`
+
+Esempio Windows:
+- `Command line`: `C:\path\env\python.exe C:\path\repo\main.py`
+- `Working directory`: `C:\path\repo`
+
+### Prova rapida configurazione (`ls`)
+Per testare la configurazione:
+1. In `Command line` usa il Python dell'env e richiama `ls`, ad esempio:
+   `/pathenv/bin/python -c "import subprocess; subprocess.run(['ls'])"`
+2. In Windows puoi usare:
+   `C:\path\env\python.exe -c "import subprocess; subprocess.run(['cmd','/c','dir'])"`
+3. In `Working directory` imposta la cartella root del clone (`pwd` della root progetto).
+4. Se il comando elenca file come `README.MD`, `transforms.csv`, `main.py`, la directory è corretta.
+
+## Lista transform da testare
+1. `getgooglesearchimage` -> `ICT Search Image by Google CSE ICT Label`
+2. `getgooglesearch` -> `ICT Search by Google CSE ICT Label`
+3. `getarticle` -> `ICT Article Details ICT Label`
+4. `getbraveaiimagesearch` -> `ICT Brave AI Image Search ICT Label`
+5. `getbraveainewssearch` -> `ICT Brave AI News Search ICT Label`
+6. `getbraveaiwebsearch` -> `ICT Brave AI Web Search ICT Label`
+
+## Piano di test completo (passo-passo)
+
+### A) Test base Google CSE (entity iniziale corretta: `maltego.Phrase`)
+1. Crea un graph nuovo.
+2. Inserisci entity `maltego.Phrase`.
+3. Valore test consigliato: `Italian Cyber Team`.
+4. Lancia `ICT Search by Google CSE ICT Label`.
+5. Verifica output: entity `maltego.URL` con title/link coerenti.
+
+Frasi consigliate (ICT CSE Search):
+- `Italian Cyber Team OSINT`
+- `cyber threat intelligence italy`
+- `digital forensics best practices`
+
+### B) Test Google CSE immagini (`maltego.Phrase`)
+1. Duplica o crea nuova entity `maltego.Phrase`.
+2. Valore test consigliato: `incident response team`.
+3. Lancia `ICT Search Image by Google CSE ICT Label`.
+4. Verifica output: entity `maltego.Image`.
+
+Frasi consigliate (ICT CSE Search Image):
+- `SOC analyst dashboard`
+- `cyber security operation center`
+- `threat hunting workflow`
+
+### C) Test Article details (`maltego.URL`)
+1. Prendi una URL valida dal test A.
+2. Lancia `ICT Article Details ICT Label`.
+3. Verifica output: `ict.ArticleDetails` con titolo, testo e metadati.
+
+### D) Test Brave AI Web (`ICT.brave.request`)
+1. Inserisci entity `ICT.brave.request`.
+2. Valore test: `critical infrastructure cybersecurity`.
+3. (Opzionale) imposta `count=10`, `country=IT`, `search_lang=it`.
+4. Lancia `ICT Brave AI Web Search ICT Label`.
+5. Verifica output: `ICT.Brave.type.web`.
+
+### E) Test Brave AI News (`ICT.brave.request`)
+1. Usa entity `ICT.brave.request`.
+2. Valore test: `ransomware europe`.
+3. (Opzionale) imposta `freshness=pw`, `count=10`.
+4. Lancia `ICT Brave AI News Search ICT Label`.
+5. Verifica output: `ICT.Brave.type.web` con notizie recenti.
+
+### F) Test Brave AI Image (`ICT.brave.request.image`)
+1. Inserisci entity `ICT.brave.request.image`.
+2. Valore test: `data center security`.
+3. (Opzionale) imposta `count=20`, `country=IT`, `search_lang=it`.
+4. Lancia `ICT Brave AI Image Search ICT Label`.
+5. Verifica output: `maltego.Image`.
+
+### G) Criteri di accettazione test
+1. Nessun errore runtime della transform.
+2. Tipo entity output corretto per ogni transform.
+3. Almeno 3 risultati pertinenti per test case.
+4. Log consultabile in `audit.log` per troubleshooting.
+
+## Supporto operativo (IT/EN)
+- Email: `support@italiancyberteam.it`
+- Lingue: Italiano e Inglese.
+- Destinatari: enti governativi, LEA (Law Enforcement Agencies), associati.
+- Canali: Meet, Chat, AnyDesk.
+- Quando contattare il supporto: errori import `.mtz`, problemi mapping entity/transform, tuning parametri (`command line`, `working directory`), troubleshooting ambiente Conda.
 
 ## model OpenAI
 - gpt-5-search-api
