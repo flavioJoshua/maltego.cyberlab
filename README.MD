@@ -1,3 +1,8 @@
+# Maltego  Cyberlab
+
+è la versione  pubblica di Italian Cyber Team  Tools for Maltego.
+questa  versione è la versione diminuita e senza AI valutativa del package  Italian Cyber Team  Maltego
+
 ## Funzioni Implementate (Cyberlab)
 Le transform aggiornate e disponibili in questa versione sono:
 

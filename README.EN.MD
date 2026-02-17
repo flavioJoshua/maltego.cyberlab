@@ -1,3 +1,8 @@
+# Maltego Cyberlab
+
+Public version of Italian Cyber Team Tools for Maltego.  
+This edition is a reduced package and does not include evaluative AI features from the full Italian Cyber Team Maltego package.
+
 ## Implemented Functions (Cyberlab)
 The updated transforms available in this Cyberlab build are:
 
@@ -125,6 +130,70 @@ lightningai
 gemini        OK
 vertex
 ollama        OK (local)
+
+### How to fill properties for each provider
+Format: **property name: YES/NO** - what it does - what happens if missing.
+
+#### openai
+- **ICT.AI.Provider: YES** - set `openai` (default if empty).  
+  If empty: OpenAI is used.
+- **ICT.AI.BaseURL: NO** - not required (official endpoints are used).
+- **ICT.AI.ApiKeyEnv: NO** - if empty, uses `OPENAI_API_KEY` from `.env`.
+- **ICT.Model_AI: YES** - model name.  
+  Examples already listed above:
+  - `gpt-5-search-api`
+  - `gpt-4o-search-preview`
+  - `gpt-4o-mini-search-preview`
+  - `gpt-5-mini`
+  - `gpt-5.2`
+- **openAI-response (env): YES/NO** - `true` = Responses API, `false` = Chat Completions.  
+  If undefined: default `false`.
+- **OPENAI_WEB_SEARCH (env): YES/NO** - enables `web_search` only with Responses API.  
+  If undefined: disabled.
+
+#### gemini (AI Studio, OpenAI-like)
+- **ICT.AI.Provider: YES** - `gemini`.
+- **ICT.AI.BaseURL: YES** - Gemini OpenAI-like base URL.  
+  Example already listed above: `https://generativelanguage.googleapis.com/v1beta/openai/`
+- **ICT.AI.ApiKeyEnv: NO** - if empty, uses `GEMINI_API_KEY` from `.env`.
+- **ICT.Model_AI: YES** - Gemini model name.  
+  Examples already listed above:
+  - `gemini-3-pro-preview`
+  - `gemini-3-flash-preview`
+  - `gemini-2.5-pro`
+  - `gemini-2.5-flash`
+  - `gemini-2.5-flash-lite`
+- **Notes**: `frequency_penalty` and `presence_penalty` are **not** supported.
+
+#### hf (Hugging Face OpenAI-like router)
+- **ICT.AI.Provider: YES** - `hf`.
+- **ICT.AI.BaseURL: YES** - e.g. `https://router.huggingface.co/v1`.
+- **ICT.AI.ApiKeyEnv: NO** - if empty, uses `HF_TOKEN` from `.env`.
+- **ICT.Model_AI: YES** - HF model name.  
+  Examples already listed above:
+  - `google/gemma-3-12b-it:featherless-ai`
+  - `deepseek-ai/DeepSeek-R1:cheapest`
+  - `deepseek-ai/DeepSeek-V3.2:cheapest`
+- **Notes**: minimal call (`model + messages`), AI.* parameters are ignored.
+
+#### lightningai (OpenAI-like)
+- **ICT.AI.Provider: YES** - `lightningai`.
+- **ICT.AI.BaseURL: YES** - OpenAI-like base URL provided by the vendor.
+- **ICT.AI.ApiKeyEnv: NO** - if empty, uses `LIGHTNINGAI_API_KEY` from `.env`.
+- **ICT.Model_AI: YES** - LightningAI model name (provider-specific).
+
+#### vertex (Google Vertex AI, OpenAI-like)
+- **ICT.AI.Provider: YES** - `vertex`.
+- **ICT.AI.BaseURL: YES** - OpenAI-like base URL for your Vertex endpoint.
+- **ICT.AI.ApiKeyEnv: YES/NO** - if set, used **as OAuth token**.  
+  If empty: uses `GOOGLE_APPLICATION_CREDENTIALS` to generate the token.
+- **ICT.Model_AI: YES** - Vertex model/endpoint name.
+
+#### ollama (local)
+- **ICT.AI.Provider: YES** - `ollama`.
+- **ICT.AI.BaseURL: NO** - optional; default `http://localhost:11434/v1`.
+- **ICT.AI.ApiKeyEnv: NO** - ignored (no API key needed).
+- **ICT.Model_AI: YES** - locally installed Ollama model name.
 
 ## AI providers: possible cases and requirements
 This section summarizes **all cases** supported by the `getAIV3` transform: providers, requirements, and choices.
